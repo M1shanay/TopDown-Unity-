@@ -7,27 +7,32 @@ using UnityEngine;
 public class HUD : MonoBehaviour
 {
     static int score = 0;
+
     public TMP_Text scorebot;
-    public Image hpbar;
+    public GameObject fullHearts;
+    //public Image hpbar;
+
     void Start()
     {
-        Debug.Log(score);
+        //Debug.Log(score);
         scorebot.text = score + " pts";
     }
 
-    // Update is called once per frame
     void Update()
     {
         scorebot.text = score + " pts";
-        UpdateHP();
+        //UpdateHP();
     }
+
     static public void UpdateScore(int points)
     {
         score += points;
-        Debug.Log(score);
+        //Debug.Log(score);
     }
-    void UpdateHP()
+
+    public void UpdateHP()
     {
-        hpbar.fillAmount = Player.hp / 100;
+        fullHearts.transform.GetChild(Player.hp).GetComponent<SpriteRenderer>().enabled = false;
+        //hpbar.fillAmount = Player.hp / 100;
     }
 }

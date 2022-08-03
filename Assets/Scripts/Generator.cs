@@ -6,12 +6,15 @@ public class Generator : MonoBehaviour
 {
     public GameObject EnemyPrefab;
     public Transform EnemyPoint;
-    float timeRemaining = 1;
+
+    private float timeRemaining = 1.5f;
     private float time;
+
     void Start()
     {
         time = timeRemaining;
     }
+
     void Update()
     {
             if (time > 0)
@@ -27,6 +30,6 @@ public class Generator : MonoBehaviour
 
     void GenerateEnemy()
     {
-        Instantiate(EnemyPrefab, EnemyPoint.position + new Vector3(Random.Range(-10f,10f),0), EnemyPoint.rotation);
+        Instantiate(EnemyPrefab, EnemyPoint.position + new Vector3(Random.Range(-10f, 10f), 0), EnemyPoint.rotation);
     }
 }

@@ -8,8 +8,7 @@ public class Weapon : MonoBehaviour
     public GameObject BulletPrefab;
     public float timeRemaining;
     private float time;
-    // Start is called before the first frame update
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetButton("Fire1"))
@@ -30,6 +29,7 @@ public class Weapon : MonoBehaviour
         }
         
     }
+
     void Shoot()
     {
         Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);

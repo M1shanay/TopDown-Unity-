@@ -8,14 +8,13 @@ public class BackGround : MonoBehaviour
     Transform back_trans;
     float back_size;
     float back_pos;
-    // Start is called before the first frame update
+
     void Start()
     {
         back_trans = GetComponent<Transform>();
         back_size = GetComponent<SpriteRenderer>().bounds.size.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Slide();
