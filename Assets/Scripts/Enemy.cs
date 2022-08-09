@@ -13,16 +13,7 @@ public class Enemy : MonoBehaviour
     public GameObject explose;
     void Start()
     {
-        float random = Random.Range(0.4f, 0.8f);
-        int side = Random.Range(-1, 1);
-        int side1 = Random.Range(-1, 1);
-        if (side == 0 || side1==0)
-        {
-            side = 1;
-            side1 = -1;
-        }
-        size.localScale = new Vector3(side*random,side1*random);
-
+        Randomaizer();
         speed = speed * Random.Range(1, 5);
         rb.velocity = transform.right * speed;
     }
@@ -39,5 +30,17 @@ public class Enemy : MonoBehaviour
         Instantiate(explose, transform.position + new Vector3(0, 0, -2), transform.rotation);
         Destroy(gameObject);
         HUD.UpdateScore(100);
+    }
+    void Randomaizer()
+    {
+        float random = Random.Range(0.4f, 0.8f);
+        int side = Random.Range(-1, 1);
+        int side1 = Random.Range(-1, 1);
+        if (side == 0 || side1 == 0)
+        {
+            side = 1;
+            side1 = -1;
+        }
+        size.localScale = new Vector3(side * random, side1 * random);
     }
 }

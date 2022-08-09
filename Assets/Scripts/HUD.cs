@@ -7,14 +7,14 @@ using UnityEngine;
 public class HUD : MonoBehaviour
 {
     static int score = 0;
-
     public TMP_Text scorebot;
-    public GameObject fullHearts;
+    public static GameObject fullHearts;
     //public Image hpbar;
 
     void Start()
     {
         //Debug.Log(score);
+        fullHearts = GameObject.Find("FullHearts");
         scorebot.text = score + " pts";
     }
 
@@ -30,9 +30,14 @@ public class HUD : MonoBehaviour
         //Debug.Log(score);
     }
 
-    public void UpdateHP()
+    public static void UpdateHP_Minus()
     {
         fullHearts.transform.GetChild(Player.hp).GetComponent<SpriteRenderer>().enabled = false;
+        //hpbar.fillAmount = Player.hp / 100;
+    }
+    public static void UpdateHP_Plus()
+    {
+        fullHearts.transform.GetChild(Player.hp-1).GetComponent<SpriteRenderer>().enabled = true;
         //hpbar.fillAmount = Player.hp / 100;
     }
 }

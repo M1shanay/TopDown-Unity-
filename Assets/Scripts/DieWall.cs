@@ -18,10 +18,15 @@ public class DieWall : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();
+        HealCoin hl = collision.GetComponent<HealCoin>();
         if (enemy != null)
         {
             enemy.TakeDamage(10000);
             HUD.UpdateScore(-200);
+        }
+        if (hl != null)
+        {
+            hl.Die();
         }
     }
 }

@@ -17,9 +17,14 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();
+        HealCoin hl = collision.GetComponent<HealCoin>();
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+        }
+        if (hl != null)
+        {
+            hl.Heal();
         }
         Instantiate(impact, transform.position+new Vector3(0, 0,-1), transform.rotation);
         Destroy(gameObject);

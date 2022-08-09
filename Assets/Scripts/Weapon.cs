@@ -11,6 +11,15 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        Firerate();  
+    }
+
+    void Shoot()
+    {
+        Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+    }
+    void Firerate()
+    {
         if (Input.GetButton("Fire1"))
         {
             if (time > 0)
@@ -27,11 +36,5 @@ public class Weapon : MonoBehaviour
         {
             time = 0;
         }
-        
-    }
-
-    void Shoot()
-    {
-        Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
     }
 }

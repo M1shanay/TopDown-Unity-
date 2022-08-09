@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public HUD HUD;
     public float speed = 10f;
 
-    static public int hp = 5;
+    public static int hp = 5;
 
     private Vector2 moveVector;
 
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
         {
             Die();
         }
-        HUD.UpdateHP();
+        HUD.UpdateHP_Minus();
     }
 
     void Die()
@@ -44,7 +44,14 @@ public class Player : MonoBehaviour
         Instantiate(playerdie, transform.position + new Vector3(0, 0, -2), transform.rotation);
         Destroy(gameObject);
     }
-
+    public static void Heal()
+    {
+        if (hp < 5)
+        {
+            hp += 1;
+        }
+        HUD.UpdateHP_Plus();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();
