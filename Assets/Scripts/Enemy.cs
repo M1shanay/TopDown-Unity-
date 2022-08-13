@@ -10,9 +10,12 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public Transform size;
 
+    public Transform Enemyship_prefab;
+
     public GameObject explose;
     void Start()
     {
+        Physics2D.IgnoreCollision(Enemyship_prefab.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         Randomaizer();
         speed = speed * Random.Range(1, 5);
         rb.velocity = transform.right * speed;

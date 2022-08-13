@@ -104,8 +104,8 @@ MonoBehaviour:
   speed: 1
   rb: {fileID: 2417174931421860740}
   size: {fileID: 8796698419984947332}
+  Enemyship_prefab: {fileID: 4188022656589204782, guid: 2c17e190b78966748a8f773c02805228, type: 3}
   explose: {fileID: 7461081645602237473, guid: 5f288f4dd5537874eac9b990895b71d8, type: 3}
-  UI: {fileID: 7910748264010671166, guid: 7c8570622059c8049ba4e10f46c6b2bf, type: 3}
 --- !u!61 &8796698419984947333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

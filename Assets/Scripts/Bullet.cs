@@ -9,15 +9,17 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject impact;
 
+    public Transform self_prefab;
+
     void Start()
     {
         rb.velocity = transform.right * speed;
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();
         HealCoin hl = collision.GetComponent<HealCoin>();
+
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
