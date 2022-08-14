@@ -72,10 +72,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4188022656589204782}
   - component: {fileID: 4188022656589204783}
-  - component: {fileID: 4188022656589204776}
-  - component: {fileID: 587694734}
-  - component: {fileID: 587694735}
   - component: {fileID: 1557896261539367625}
+  - component: {fileID: 587694734}
+  - component: {fileID: 4188022656589204776}
+  - component: {fileID: 587694735}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Untagged
@@ -152,19 +152,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4188022656589204776
-MonoBehaviour:
+--- !u!50 &1557896261539367625
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4188022656589204777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef2071c0cb596fe4e8bf483973074973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!68 &587694734
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -192,6 +200,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &4188022656589204776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188022656589204777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2071c0cb596fe4e8bf483973074973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &587694735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,24 +227,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castPoint: {fileID: 569541521}
   BulletEnemyPrefab: {fileID: 630863583265856066, guid: 2bbbd0dfdd4728e4f9f37f7d35aff338, type: 3}
---- !u!50 &1557896261539367625
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188022656589204777}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6

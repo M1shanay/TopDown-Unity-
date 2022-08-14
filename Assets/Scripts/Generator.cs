@@ -23,20 +23,24 @@ public class Generator : MonoBehaviour
 
     void Update()
     {
-        //Generation();
+        Generation();
     }
+
     void GenerateEnemyShip()
     {
         Instantiate(EnemyShipPrefab, EnemyPoint.position + new Vector3(Random.Range(-10f, 10f), 0), new Quaternion(0f, 0.0f,180f,0f));
     }
+
     void GenerateAsteroinds()
     {
         Instantiate(EnemyPrefab, EnemyPoint.position + new Vector3(Random.Range(-10f, 10f), 0), EnemyPoint.rotation);
     }
+
     void GenerateHeal()
     {
         Instantiate(HealPrefab, EnemyPoint.position + new Vector3(Random.Range(-10f, 10f), 0), EnemyPoint.rotation);
     }
+
     void Generation()
     {
         if (time > 0)
