@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
         Instantiate(playerdie, transform.position + new Vector3(0, 0, -2), transform.rotation);
         Destroy(gameObject);
     }
+
     public static void Heal()
     {
         if (hp < 5)
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
         }
         HUD.UpdateHP_Plus();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();

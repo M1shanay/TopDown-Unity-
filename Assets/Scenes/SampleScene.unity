@@ -337,12 +337,12 @@ GameObject:
   m_Component:
   - component: {fileID: 128889061}
   - component: {fileID: 128889060}
-  - component: {fileID: 128889059}
-  - component: {fileID: 128889062}
-  - component: {fileID: 128889063}
-  - component: {fileID: 128889064}
   - component: {fileID: 128889065}
   - component: {fileID: 128889066}
+  - component: {fileID: 128889062}
+  - component: {fileID: 128889064}
+  - component: {fileID: 128889059}
+  - component: {fileID: 128889063}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player

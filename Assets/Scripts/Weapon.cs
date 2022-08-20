@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     public Transform FirePoint;
     public GameObject BulletPrefab;
     public float timeRemaining;
+
     private float time;
 
     void Update()
@@ -18,6 +19,7 @@ public class Weapon : MonoBehaviour
     {
         Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
     }
+
     void Firerate()
     {
         if (Input.GetButton("Fire1"))

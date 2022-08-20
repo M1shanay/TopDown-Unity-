@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int hp = 100;
+    public int hp;
     public float speed = 0.00003f;
-
+    public GameObject explose;
     public Rigidbody2D rb;
     public Transform size;
-
     public Transform Enemyship_prefab;
 
-    public GameObject explose;
     void Start()
     {
         Physics2D.IgnoreCollision(Enemyship_prefab.GetComponent<Collider2D>(), GetComponent<Collider2D>());
@@ -20,20 +18,24 @@ public class Enemy : MonoBehaviour
         speed = speed * Random.Range(1, 5);
         rb.velocity = transform.right * speed;
     }
+
     public void TakeDamage(int damage)
     {
         hp -= damage;
+
         if (hp <= 0)
         {
             Die();
         }
     }
+
     void Die()
     {
         Instantiate(explose, transform.position + new Vector3(0, 0, -2), transform.rotation);
         Destroy(gameObject);
         HUD.UpdateScore(100);
     }
+
     void Randomaizer()
     {
         float random = Random.Range(0.4f, 0.8f);

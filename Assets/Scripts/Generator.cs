@@ -7,18 +7,15 @@ public class Generator : MonoBehaviour
     public GameObject EnemyPrefab;
     public GameObject HealPrefab;
     public Transform EnemyPoint;
-
     public GameObject EnemyShipPrefab;
 
     private float timeRemaining = 1.5f;
     private float time;
-
     private int heal_couldown = 0;
 
     void Start()
     {
         time = timeRemaining;
-        GenerateEnemyShip();
     }
 
     void Update()
@@ -31,7 +28,7 @@ public class Generator : MonoBehaviour
         Instantiate(EnemyShipPrefab, EnemyPoint.position + new Vector3(Random.Range(-10f, 10f), 0), new Quaternion(0f, 0.0f,180f,0f));
     }
 
-    void GenerateAsteroinds()
+    void GenerateAsteroids()
     {
         Instantiate(EnemyPrefab, EnemyPoint.position + new Vector3(Random.Range(-10f, 10f), 0), EnemyPoint.rotation);
     }
@@ -49,13 +46,18 @@ public class Generator : MonoBehaviour
         }
         else
         {
-            if (heal_couldown == 5)
+            if (heal_couldown == 25)
             {
                 GenerateHeal();
                 heal_couldown = 0;
             }
-            GenerateAsteroinds();
-            GenerateEnemyShip();
+            GenerateAsteroids();
+
+            if (HUD.GetScore >= 2000)
+            {
+                GenerateEnemyShip();
+            }
+            
             heal_couldown++;
             time = timeRemaining;
         }
