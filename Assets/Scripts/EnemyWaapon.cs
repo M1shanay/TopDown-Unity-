@@ -8,7 +8,7 @@ public class EnemyWaapon : MonoBehaviour
     public Transform castPoint;
     public GameObject BulletEnemyPrefab;
 
-    private float timeRemaining = 0.5f;
+    private float timeRemaining = 0.7f;
     private float time;
     // Start is called before the first frame update
     void Start()
@@ -19,26 +19,20 @@ public class EnemyWaapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Firerate();
+        ShootIfSee();
     }
     void Firerate()
     {
-        if (IfSee())
+        if (time > 0)
         {
-            if (time > 0)
-            {
-                time -= Time.deltaTime;
-                Debug.Log(time);
-            }
-            else
-            {
-                Shoot();
-                Debug.Log(time);
-                time = timeRemaining;
-            }
+            time -= Time.deltaTime;
+            Debug.Log(time);
         }
         else
-            time = 0;
+        {
+            Shoot();
+            time = timeRemaining;
+        }
     }
     void Shoot()
     {
@@ -56,5 +50,16 @@ public class EnemyWaapon : MonoBehaviour
             return false;
         }
         return false;
+    }
+    void ShootIfSee()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(castPoint.transform.position, Vector2.down, SeeDist);
+        if (hit.collider != null)
+        {
+            if (hit.collider.gameObject.CompareTag("Player"))
+            {
+                Firerate();
+            }
+        }
     }
 }

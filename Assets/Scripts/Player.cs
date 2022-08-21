@@ -57,12 +57,16 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();
+        EnemyBullet bullet = collision.GetComponent<EnemyBullet>();
         if (enemy != null)
         {
             TakeDamage(1);
-            //Debug.Log(hp);
             enemy.TakeDamage(1000);
             HUD.UpdateScore(-200);
+        }
+        else if (bullet != null)
+        {
+            TakeDamage(1);
         }
     }
 }
