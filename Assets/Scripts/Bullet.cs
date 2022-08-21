@@ -18,17 +18,17 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name == "Enemy(Clone)")
+        if(collision.tag == "Asteroid")
         {
             Enemy enemy = collision.GetComponent<Enemy>();
             enemy.TakeDamage(damage);
         }
-        else if (collision.name == "EnemyShip(Clone)")
+        else if (collision.tag == "EnemyShip")
         {
             EnemyShip enemyShip = collision.GetComponent<EnemyShip>();
             enemyShip.TakeDamage(damage);
         }
-        else if (collision.name == "Heal(Clone)")
+        else if (collision.tag == "HealCoin")
         {
             HealCoin hl = collision.GetComponent<HealCoin>();
             hl.Heal();

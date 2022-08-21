@@ -38,22 +38,9 @@ public class EnemyWaapon : MonoBehaviour
     {
         Instantiate(BulletEnemyPrefab, castPoint.position, castPoint.rotation);
     }
-    bool IfSee()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(castPoint.transform.position, Vector2.down, SeeDist);
-        if (hit.collider != null)
-        {
-            if (hit.collider.gameObject.CompareTag("Player"))
-            {
-                return true;
-            }
-            return false;
-        }
-        return false;
-    }
     void ShootIfSee()
     {
-        RaycastHit2D hit = Physics2D.Raycast(castPoint.transform.position, Vector2.down, SeeDist);
+        RaycastHit2D hit = Physics2D.Raycast(castPoint.transform.position, Vector2.down, SeeDist,1<<LayerMask.NameToLayer("Player"));
         if (hit.collider != null)
         {
             if (hit.collider.gameObject.CompareTag("Player"))

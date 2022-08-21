@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2613769289179175107}
   - component: {fileID: 2613769289179175106}
   - component: {fileID: 2613769289179175133}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  damage: 0
   rb: {fileID: 2613769289179175106}
   impact: {fileID: 2790917520850951311, guid: 7077383dee8d8a049a15b81650ca3330, type: 3}
 --- !u!50 &2613769289179175106

@@ -6,15 +6,17 @@ public class EnemyShip : MonoBehaviour
 {
     public Transform target;
     public GameObject explose;
+    public Transform EnemyBullet_prefab;
 
-    private int hp = 3;
+    private int hp = 6;
     private float speed;
     private float spawn_position;
 
     void Start()
     {
+        Physics2D.IgnoreCollision(EnemyBullet_prefab.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        spawn_position = Random.Range(5f, 1f);
+        spawn_position = Random.Range(5, 1);
         speed = 1f;
     }
 

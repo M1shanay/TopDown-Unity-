@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1037954550}
   m_Layer: 0
   m_Name: EnemyShip
-  m_TagString: Untagged
+  m_TagString: EnemyShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   explose: {fileID: 7461081645602237473, guid: 5f288f4dd5537874eac9b990895b71d8, type: 3}
+  EnemyBullet_prefab: {fileID: 2613769289179175105, guid: 45e7899da5a7630488a65676a73492f2, type: 3}
 --- !u!114 &587694735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castPoint: {fileID: 569541521}
   BulletEnemyPrefab: {fileID: 2613769289179175132, guid: 45e7899da5a7630488a65676a73492f2, type: 3}
+  Enemyship_prefab: {fileID: 4188022656589204782}
 --- !u!61 &1037954550
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,7 +184,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.47548747, y: 0.6517428}
+  m_Offset: {x: -0.47548747, y: 1.4421219}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -193,5 +195,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.901813, y: 3.90389}
+  m_Size: {x: 3.901813, y: 2.3231318}
   m_EdgeRadius: 0

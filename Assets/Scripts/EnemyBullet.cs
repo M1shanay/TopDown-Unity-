@@ -5,14 +5,13 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public float speed = 20f;
-    public int damage;
+    private int damage = 1;
     public Rigidbody2D rb;
     public GameObject impact;
 
     void Start()
     {
         rb.velocity = transform.right * speed;
-        damage = 1;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
