@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        DeathScreen.enabled = false;
     }
 
     void Update()
