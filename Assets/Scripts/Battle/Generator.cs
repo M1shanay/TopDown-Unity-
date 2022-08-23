@@ -53,7 +53,7 @@ public class Generator : MonoBehaviour
             }
             GenerateAsteroids();
 
-            if (HUD.GetScore >= 2000)
+            if (HUD.GetScore >= 000)
             {
                 GenerateEnemyShip();
             }

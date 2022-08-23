@@ -17,7 +17,7 @@ public class EnemyShip : MonoBehaviour
         Physics2D.IgnoreCollision(EnemyBullet_prefab.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         spawn_position = Random.Range(5, 1);
-        speed = 1f;
+        speed = Random.Range(1, 3);
     }
 
     void Update()
@@ -27,12 +27,11 @@ public class EnemyShip : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Before shot: " + hp);
         hp -= damage;
-        Debug.Log("After shot: " + hp);
 
         if (hp <= 0)
         {
+            DeathCounter.UpdateEnemyShipLvl1DeathDeaths();
             Die();
         }
     }

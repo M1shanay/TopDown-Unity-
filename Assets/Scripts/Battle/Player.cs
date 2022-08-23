@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public GameObject playerdie;
     public HUD HUD;
     public float speed = 10f;
+    public Canvas DeathScreen;
 
     public static int hp = 5;
 
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
     {
         Instantiate(playerdie, transform.position + new Vector3(0, 0, -2), transform.rotation);
         Destroy(gameObject);
+        DeathScreen.enabled = true;
     }
 
     public static void Heal()

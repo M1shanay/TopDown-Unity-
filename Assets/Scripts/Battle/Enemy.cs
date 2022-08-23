@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0)
         {
+            DeathCounter.UpdateAsteroidDeaths();
             Die();
         }
     }

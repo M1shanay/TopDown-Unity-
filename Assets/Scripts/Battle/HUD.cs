@@ -7,24 +7,33 @@ using UnityEngine;
 public class HUD : MonoBehaviour
 {
     static int score = 0;
+    static int coins = 0;
 
-    public TMP_Text scorebot;
+    public TMP_Text scoreBot;
+    public TMP_Text coinsBot;
     public static GameObject fullHearts;
 
     void Start()
     {
         fullHearts = GameObject.Find("FullHearts");
-        scorebot.text = score + " pts";
+        scoreBot.text = score + " pts";
+        coinsBot.text = coins + "";
     }
 
     void Update()
     {
-        scorebot.text = score + " pts";
+        scoreBot.text = score + " pts";
+        coinsBot.text = coins + "";
     }
 
     static public void UpdateScore(int points)
     {
         score += points;
+    }
+
+    public static void UpdateCoins(int coin)
+    {
+        coins += coin;
     }
 
     public static void UpdateHP_Minus()
