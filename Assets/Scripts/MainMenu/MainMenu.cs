@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject ShopPanel;
-    public GameObject Battle;
 
     public void ShowShopPanel()
     {
@@ -14,7 +14,6 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        Battle.SetActive(true);
-        gameObject.SetActive(false);
+        SceneManager.LoadScene(1);
     }
 }

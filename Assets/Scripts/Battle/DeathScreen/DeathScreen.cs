@@ -7,11 +7,11 @@ public class DeathScreen : MonoBehaviour
 {
     public void Restart()
     {
-
+        SceneManager.LoadScene(1);
     }
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
     }
 }

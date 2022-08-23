@@ -30,11 +30,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void DieFromDieWall()
+    {
+        Die();
+    }
+
     void Die()
     {
         Instantiate(explose, transform.position + new Vector3(0, 0, -2), transform.rotation);
         Destroy(gameObject);
-        HUD.UpdateScore(100);
+        if (Player.hp > 0)
+        {
+            HUD.UpdateScore(100);
+        }
     }
 
     void Randomaizer()

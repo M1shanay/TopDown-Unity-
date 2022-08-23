@@ -36,6 +36,11 @@ public class EnemyShip : MonoBehaviour
         }
     }
 
+    public void DieFromDieWall()
+    {
+        Die();
+    }
+
     void Die()
     {
         Instantiate(explose, transform.position + new Vector3(0, 0, -2), transform.rotation);

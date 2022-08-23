@@ -13,9 +13,15 @@ public class HUD : MonoBehaviour
     public TMP_Text coinsBot;
     public static GameObject fullHearts;
 
+    private void Awake()
+    {
+        coins = PlayerPrefs.GetInt("CurrentCoinsCount");
+    }
+
     void Start()
     {
         fullHearts = GameObject.Find("FullHearts");
+        score = 0;
         scoreBot.text = score + " pts";
         coinsBot.text = coins + "";
     }
@@ -24,6 +30,11 @@ public class HUD : MonoBehaviour
     {
         scoreBot.text = score + " pts";
         coinsBot.text = coins + "";
+
+        if (score > PlayerPrefs.GetInt("MaxScore"))
+        {
+            PlayerPrefs.SetInt("MaxScore", score);
+        }
     }
 
     static public void UpdateScore(int points)
@@ -49,5 +60,10 @@ public class HUD : MonoBehaviour
     public static int GetScore
     {
         get { return score; }
+    }
+
+    public static int GetCoins
+    {
+        get { return coins; }
     }
 }

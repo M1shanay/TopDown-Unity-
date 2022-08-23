@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
 
     void Die()
     {
+        PlayerPrefs.SetInt("CurrentCoinsCount", HUD.GetCoins);
         Instantiate(playerdie, transform.position + new Vector3(0, 0, -2), transform.rotation);
         Destroy(gameObject);
         DeathScreen.enabled = true;
