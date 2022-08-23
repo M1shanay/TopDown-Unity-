@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        hp = 5;
         rb = GetComponent<Rigidbody2D>();
         DeathScreen.enabled = false;
     }

@@ -243,7 +243,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4188022656589204777, guid: 2c17e190b78966748a8f773c02805228, type: 3}
@@ -295,14 +294,12 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c17e190b78966748a8f773c02805228, type: 3}
 --- !u!1001 &1307749372
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4188022656589204777, guid: 2c17e190b78966748a8f773c02805228, type: 3}
@@ -354,7 +351,6 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c17e190b78966748a8f773c02805228, type: 3}
 --- !u!1 &1378457091
 GameObject:
@@ -508,6 +504,7 @@ MonoBehaviour:
   playerdie: {fileID: 45022339856149644, guid: 7364f95d429b011469d0cf662756f74e, type: 3}
   HUD: {fileID: 0}
   speed: 15
+  DeathScreen: {fileID: 0}
 --- !u!212 &1378457098
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -549,7 +546,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c516541166a38d744b97ad6d6c90ea95, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 751b9d30685dd504b983fca60072c720, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
