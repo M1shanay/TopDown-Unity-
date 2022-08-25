@@ -6,10 +6,15 @@ public class Weapon : MonoBehaviour
 {
     public Transform FirePoint;
     public GameObject BulletPrefab;
+    public GameObject ShootDacayl;
     public float timeRemaining;
 
     private float time;
 
+    void Start()
+    {
+       ShootDacayl.GetComponent<SpriteRenderer>().enabled=false;
+    }
     void Update()
     {
         Firerate();  
@@ -24,6 +29,7 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
+            ShootDacayl.GetComponent<SpriteRenderer>().enabled = true;
             if (time > 0)
             {
                 time -= Time.deltaTime;
@@ -36,6 +42,7 @@ public class Weapon : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1"))
         {
+            ShootDacayl.GetComponent<SpriteRenderer>().enabled = false;
             time = 0;
         }
     }
