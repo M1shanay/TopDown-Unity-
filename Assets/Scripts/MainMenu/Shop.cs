@@ -14,4 +14,14 @@ public class Shop : MonoBehaviour
         coins = PlayerPrefs.GetInt("CurrentCoinsCount");
         coinsBot.text = coins + "";
     }
+
+    public void BuyUpgrade(int cost)
+    {
+        if (cost <= coins)
+        {
+            coins -= cost;
+            coinsBot.text = coins + "";
+            PlayerPrefs.SetInt("CurrentCoinsCount", coins);
+        }
+    }
 }

@@ -5,16 +5,36 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Transform FirePoint;
-    public GameObject BulletPrefab;
+    public GameObject[] BulletPrefab;
     public GameObject ShootDacayl;
     public float timeRemaining;
 
-    private float time;
+    private int _weaponType;
+    private bool _isDoubleShot = false;
+    private float _time;
+
+    private void Awake()
+    {
+        if(PlayerPrefs.GetString("RocketLaunch") == "Yes")
+        {
+            _weaponType = 1;
+        }
+        else
+        {
+            _weaponType = 0;
+        }
+
+        if(PlayerPrefs.GetString("DoubleShot") == "Yes")
+        {
+            _isDoubleShot = true;
+        }
+    }
 
     void Start()
     {
        ShootDacayl.GetComponent<SpriteRenderer>().enabled=false;
     }
+
     void Update()
     {
         Firerate();  
@@ -22,7 +42,15 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+        if(_isDoubleShot)
+        {
+            Instantiate(BulletPrefab[_weaponType], new Vector3(FirePoint.position.x - 0.21f, FirePoint.position.y - 0.22f, FirePoint.position.z), FirePoint.rotation);
+            Instantiate(BulletPrefab[_weaponType], new Vector3(FirePoint.position.x + 0.42f, FirePoint.position.y - 0.22f, FirePoint.position.z), FirePoint.rotation);
+        }
+        else
+        {
+            Instantiate(BulletPrefab[_weaponType], FirePoint.position, FirePoint.rotation);
+        }        
     }
 
     void Firerate()
@@ -30,20 +58,20 @@ public class Weapon : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
             ShootDacayl.GetComponent<SpriteRenderer>().enabled = true;
-            if (time > 0)
+            if (_time > 0)
             {
-                time -= Time.deltaTime;
+                _time -= Time.deltaTime;
             }
             else
             {
                 Shoot();
-                time = timeRemaining;
+                _time = timeRemaining;
             }
         }
         if (Input.GetButtonUp("Fire1"))
         {
             ShootDacayl.GetComponent<SpriteRenderer>().enabled = false;
-            time = 0;
+            _time = 0;
         }
     }
 }

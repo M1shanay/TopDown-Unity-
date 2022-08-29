@@ -7,6 +7,7 @@ TagManager:
   - EnemyShip
   - HealCoin
   - Asteroid
+  - Boss_Asteroid
   - Impact
   layers:
   - Default

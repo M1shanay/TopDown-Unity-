@@ -7,6 +7,11 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject ShopPanel;
 
+    private void Start()
+    {
+        //PlayerPrefs.DeleteAll();
+    }
+
     public void ShowShopPanel()
     {
         ShopPanel.SetActive(!ShopPanel.activeSelf);

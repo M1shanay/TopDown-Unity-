@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2928499766032186682}
   - component: {fileID: 3148419533630471333}
   m_Layer: 0
-  m_Name: Bullet 1
+  m_Name: Blast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 25
+  damage: 1
   rb: {fileID: 2866358923157331084}
   impact: {fileID: 8807804149448122126, guid: c810dbb10d06341499c3363ab35913de, type: 3}
   self_prefab: {fileID: 4613362199186066816}

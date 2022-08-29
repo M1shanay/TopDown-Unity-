@@ -13,7 +13,6 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
-        damage = 1;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +26,16 @@ public class Bullet : MonoBehaviour
         {
             EnemyShip enemyShip = collision.GetComponent<EnemyShip>();
             enemyShip.TakeDamage(damage);
+        }
+        else if (collision.tag == "Boss_Asteroid")
+        {
+            Boss_Asteroid boss_Asteroid = collision.GetComponent<Boss_Asteroid>();
+            boss_Asteroid.TakeDamage(damage);
+        }
+        else if (collision.name == "Piece")
+        {
+            Piece boss_Asteroid_Piece = collision.GetComponent<Piece>();
+            boss_Asteroid_Piece.TakeDamage(damage);
         }
         else if (collision.tag == "HealCoin")
         {

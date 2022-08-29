@@ -30,9 +30,8 @@ public class Player : MonoBehaviour
     void Movement()
     {
         moveVector.x = Input.GetAxis("Horizontal");
-        Debug.Log(moveVector.x);
         animator.SetFloat("Horizontal", moveVector.x);
-        rb.velocity = new Vector2(moveVector.x * speed, rb.velocity.y);
+        rb.velocity = new Vector3(moveVector.x * speed, rb.velocity.y, 0f);
     }
 
     void TakeDamage(int damage)
