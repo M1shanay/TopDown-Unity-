@@ -136,8 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8511f1697dc434c966bbad13642996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  damage: 2
   rb: {fileID: 2866358923157331084}
   impact: {fileID: 8807804149448122126, guid: c810dbb10d06341499c3363ab35913de, type: 3}
   self_prefab: {fileID: 4613362199186066816}
+  typeOfWeapon: 2

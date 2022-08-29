@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 20f;
-    public int damage;
+    private float speed;
+    private int damage;
     public Rigidbody2D rb;
     public GameObject impact;
     public Transform self_prefab;
+    public int typeOfWeapon;
 
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        if(typeOfWeapon == 1)
+        {
+            damage = 1;
+            speed = 20f;
+            rb.velocity = transform.right * speed;
+        }
+        else if(typeOfWeapon == 2)
+        {
+            damage = 20;
+            speed = 10f;
+            rb.velocity = transform.right * speed;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,8 +54,7 @@ public class Bullet : MonoBehaviour
             HealCoin hl = collision.GetComponent<HealCoin>();
             hl.Heal();
         }
-
-        Instantiate(impact, transform.position + new Vector3(0, 0, -1), transform.rotation);
+        Instantiate(impact, transform.position + new Vector3(0, 0, -1), new Quaternion(0f, 0.0f, 0f, 0f));
         Destroy(gameObject);
     }
 }
