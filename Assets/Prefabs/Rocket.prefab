@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2866358923157331084}
   - component: {fileID: 2928499766032186682}
   - component: {fileID: 3148419533630471333}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 2.79, y: -0.54}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2
 --- !u!114 &3148419533630471333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2866358923157331084}
-  impact: {fileID: 8807804149448122126, guid: c810dbb10d06341499c3363ab35913de, type: 3}
+  impact: {fileID: 7461081645602237473, guid: d00b5af2ab319f642a60edfd7ce6d943, type: 3}
   self_prefab: {fileID: 4613362199186066816}
   typeOfWeapon: 2

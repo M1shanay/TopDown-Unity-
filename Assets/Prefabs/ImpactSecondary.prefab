@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7461081645602237475}
   - component: {fileID: 7461081645602237474}
   - component: {fileID: 1368636769949131114}
-  m_Layer: 0
+  - component: {fileID: -1076665893984957527}
+  m_Layer: 7
   m_Name: ImpactSecondary
   m_TagString: Impact
   m_Icon: {fileID: 0}
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7461081645602237473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.97, y: 0.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5138154, y: 2.5138154, z: 2.5138154}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -119,3 +120,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfWeapon: 2
+--- !u!58 &-1076665893984957527
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7461081645602237473}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4

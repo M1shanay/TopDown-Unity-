@@ -9,7 +9,7 @@ public class Generator : MonoBehaviour
     public Transform EnemyPoint;
     public GameObject EnemyShipPrefab;
 
-    private float timeRemaining = 1.5f;
+    private float timeRemaining = 1f;
     private float time;
     private int heal_couldown = 0;
 

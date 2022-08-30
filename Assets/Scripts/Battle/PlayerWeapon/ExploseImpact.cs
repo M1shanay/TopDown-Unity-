@@ -7,17 +7,27 @@ public class ExploseImpact : MonoBehaviour
     private int damage;
     private CircleCollider2D _collider;
     public int typeOfWeapon;
+    float _aliveTime = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
         _collider = GetComponent<CircleCollider2D>();
         if (typeOfWeapon == 2)
         {
-            _collider.radius = 1.2f;
+            _collider.radius = 0.7f;
             damage = 20;
         }
+        StartCoroutine(Delay());
     }
-
+    private void Update()
+    {
+    }
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _collider.enabled = false;
+        Debug.Log("off");
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Asteroid")
@@ -45,6 +55,5 @@ public class ExploseImpact : MonoBehaviour
             HealCoin hl = collision.GetComponent<HealCoin>();
             hl.Heal();
         }
-        _collider.enabled = false;
     }
 }

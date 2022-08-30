@@ -38,17 +38,14 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        ShootDacayl1.GetComponent<SpriteRenderer>().enabled = false;
-        ShootDacayl2.GetComponent<SpriteRenderer>().enabled = false;
+
         if (_isDoubleShot)
         {
             ShootDacayl = ShootDacayl2;
-            ShootDacayl.GetComponent<SpriteRenderer>().enabled = false;
         }
         else
         {
             ShootDacayl = ShootDacayl1;
-            ShootDacayl.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
@@ -82,7 +79,7 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            ShootDacayl.GetComponent<SpriteRenderer>().enabled = true;
+            ShootDacayl.SetActive(true);
             if (_timeMainWeapon > 0)
             {
                 _timeMainWeapon -= Time.deltaTime;
@@ -95,19 +92,19 @@ public class Weapon : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1"))
         {
-            ShootDacayl.GetComponent<SpriteRenderer>().enabled = false;
+            ShootDacayl.SetActive(false);
             _timeMainWeapon = 0;
         }
     }
     void FirerateSecondaryWeapon()
     {
-        if (Input.GetButton("Fire2"))
+        if (_timeSecondaryWeapon > 0)
         {
-            if (_timeSecondaryWeapon > 0)
-            {
-                _timeSecondaryWeapon -= Time.deltaTime;
-            }
-            else
+            _timeSecondaryWeapon -= Time.deltaTime;
+        }
+        else
+        {
+            if (Input.GetButton("Fire2"))
             {
                 ShootSecondaryWeapon();
                 _timeSecondaryWeapon = timeRemainingSecondaryWeapon;
