@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        Physics2D.IgnoreCollision(Enemyship_prefab.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         Randomaizer();
         speed = speed * Random.Range(1, 5);
         rb.velocity = transform.right * speed;
@@ -47,7 +46,7 @@ public class Enemy : MonoBehaviour
 
     void Randomaizer()
     {
-        float random = Random.Range(0.4f, 0.8f);
+        float random = Random.Range(30, 50);
         int side = Random.Range(-1, 1);
         int side1 = Random.Range(-1, 1);
         if (side == 0 || side1 == 0)
@@ -55,6 +54,6 @@ public class Enemy : MonoBehaviour
             side = 1;
             side1 = -1;
         }
-        size.localScale = new Vector3(side * random, side1 * random);
+        size.localScale = new Vector3(side * random, side1 * random, random);
     }
 }

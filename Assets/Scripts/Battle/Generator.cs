@@ -52,7 +52,7 @@ public class Generator : MonoBehaviour
                 heal_couldown = 0;
             }
             GenerateAsteroids();
-
+            GenerateEnemyShip();
             /*if (HUD.GetScore >= 000)
             {
                 GenerateEnemyShip();
