@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
@@ -9,15 +10,19 @@ public class Weapon : MonoBehaviour
     public GameObject[] BulletPrefabSecondaryWeapon;
     public GameObject ShootDacayl1;
     public GameObject ShootDacayl2;
+    public Image MainWeaponOverheatingImage;
+    public Image SecondWeaponChargeImage;
 
-    private GameObject ShootDacayl;
     public float timeRemainingMainWeapon;
+    public float mainWeaponOverheatingTime;
     public float timeRemainingSecondaryWeapon;
 
+    private GameObject ShootDacayl;
     private int _weaponMainType;
     private int _weaponSecondaryType;
     private bool _isDoubleShot = false;
     private float _timeMainWeapon;
+    private float _mainWeaponOverheatingTime;
     private float _timeSecondaryWeapon;
     bool _enableSecondaryWeapon = false;
 
@@ -38,6 +43,8 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
+        _timeSecondaryWeapon = timeRemainingSecondaryWeapon;
+        _mainWeaponOverheatingTime = 0f;
 
         if (_isDoubleShot)
         {
@@ -52,6 +59,8 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         FirerateMainWeapon();
+        MainWeaponOverheatingImage.fillAmount = _mainWeaponOverheatingTime / mainWeaponOverheatingTime;
+
         if (_enableSecondaryWeapon)
         {
             FirerateSecondaryWeapon();
@@ -61,9 +70,13 @@ public class Weapon : MonoBehaviour
     void ShootSecondaryWeapon()
     {
         Instantiate(BulletPrefabSecondaryWeapon[_weaponSecondaryType], FirePoint.position, FirePoint.rotation);
+        SecondWeaponChargeImage.fillAmount = 0;
     }
+
     void ShootMainWeapon()
     {
+        _mainWeaponOverheatingTime += 0.15f;
+
         if (_isDoubleShot)
         {
             Instantiate(BulletPrefabMainWeapon[_weaponMainType], new Vector3(FirePoint.position.x - 0.22f, FirePoint.position.y - 0.22f, FirePoint.position.z), FirePoint.rotation);
@@ -77,9 +90,10 @@ public class Weapon : MonoBehaviour
 
     void FirerateMainWeapon()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && _mainWeaponOverheatingTime < mainWeaponOverheatingTime)
         {
             ShootDacayl.SetActive(true);
+
             if (_timeMainWeapon > 0)
             {
                 _timeMainWeapon -= Time.deltaTime;
@@ -90,24 +104,31 @@ public class Weapon : MonoBehaviour
                 _timeMainWeapon = timeRemainingMainWeapon;
             }
         }
-        if (Input.GetButtonUp("Fire1"))
+        else
+        {
+            _mainWeaponOverheatingTime -= Time.deltaTime;
+        }
+
+        if (Input.GetButtonUp("Fire1") && _mainWeaponOverheatingTime != mainWeaponOverheatingTime)
         {
             ShootDacayl.SetActive(false);
             _timeMainWeapon = 0;
         }
     }
+
     void FirerateSecondaryWeapon()
     {
-        if (_timeSecondaryWeapon > 0)
+        if (_timeSecondaryWeapon < timeRemainingSecondaryWeapon)
         {
-            _timeSecondaryWeapon -= Time.deltaTime;
+            _timeSecondaryWeapon += Time.deltaTime;
+            SecondWeaponChargeImage.fillAmount = _timeSecondaryWeapon / timeRemainingSecondaryWeapon;
         }
         else
         {
             if (Input.GetButton("Fire2"))
             {
                 ShootSecondaryWeapon();
-                _timeSecondaryWeapon = timeRemainingSecondaryWeapon;
+                _timeSecondaryWeapon = 0;
             }
         }
     }
