@@ -25,7 +25,7 @@ public class Generator : MonoBehaviour
 
     void GenerateEnemyShip()
     {
-        Instantiate(EnemyShipPrefab, EnemyPoint.position + new Vector3(Random.Range(-10f, 10f), 0), new Quaternion(0f, 0.0f,180f,0f));
+        Instantiate(EnemyShipPrefab, EnemyPoint.position + new Vector3(Random.Range(-10f, 10f), 0), EnemyShipPrefab.transform.rotation);
     }
 
     void GenerateAsteroids()
