@@ -14,7 +14,6 @@ public class EnemyShip : MonoBehaviour
 
     void Start()
     {
-        Physics2D.IgnoreCollision(EnemyBullet_prefab.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         spawn_position = Random.Range(5, 1);
         speed = Random.Range(1, 3);
