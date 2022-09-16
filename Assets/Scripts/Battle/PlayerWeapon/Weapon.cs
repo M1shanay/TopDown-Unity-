@@ -22,7 +22,9 @@ public class Weapon : MonoBehaviour
     private int _weaponSecondaryType;
     private bool _isDoubleShot = false;
     private float _timeMainWeapon;
+    private float _startTimeRemainingMainWeapon;
     private float _mainWeaponOverheatingTime;
+    private bool _isMainWeaponColling = false;
     private float _timeSecondaryWeapon;
     bool _enableSecondaryWeapon = false;
 
@@ -43,6 +45,7 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
+        _startTimeRemainingMainWeapon = timeRemainingMainWeapon;
         _timeSecondaryWeapon = timeRemainingSecondaryWeapon;
         _mainWeaponOverheatingTime = 0f;
 
@@ -75,7 +78,16 @@ public class Weapon : MonoBehaviour
 
     void ShootMainWeapon()
     {
-        _mainWeaponOverheatingTime += 0.15f;
+        if (!_isMainWeaponColling)
+        {
+            _mainWeaponOverheatingTime += 0.15f;
+        }
+        
+        if((_mainWeaponOverheatingTime >= mainWeaponOverheatingTime) && (!_isMainWeaponColling))
+        {
+            _isMainWeaponColling = true;
+            timeRemainingMainWeapon *= 5f;
+        }
 
         if (_isDoubleShot)
         {
@@ -90,7 +102,7 @@ public class Weapon : MonoBehaviour
 
     void FirerateMainWeapon()
     {
-        if (Input.GetButton("Fire1") && _mainWeaponOverheatingTime < mainWeaponOverheatingTime)
+        if (Input.GetButton("Fire1"))
         {
             ShootDacayl.SetActive(true);
 
@@ -103,13 +115,23 @@ public class Weapon : MonoBehaviour
                 ShootMainWeapon();
                 _timeMainWeapon = timeRemainingMainWeapon;
             }
+
+            if(_isMainWeaponColling)
+            {
+                _mainWeaponOverheatingTime -= Time.deltaTime;
+                if (_mainWeaponOverheatingTime <= 0)
+                {
+                    _isMainWeaponColling = false;
+                    timeRemainingMainWeapon = _startTimeRemainingMainWeapon;
+                }
+            }
         }
         else
         {
             _mainWeaponOverheatingTime -= Time.deltaTime;
         }
 
-        if (Input.GetButtonUp("Fire1") && _mainWeaponOverheatingTime != mainWeaponOverheatingTime)
+        if (Input.GetButtonUp("Fire1") && (_mainWeaponOverheatingTime != mainWeaponOverheatingTime))
         {
             ShootDacayl.SetActive(false);
             _timeMainWeapon = 0;
